@@ -1,2 +1,32 @@
-<!-- ./view/index.handlebars -->
-<h1>This will be a random trashtalk generator.</h1>
+<div class="container mt-5">
+  <h1 class="title text-center text-info">你想對誰說幹話?</h1>
+  <form action="/" method="POST">
+    <div class="d-flex select-career-section justify-content-between mt-5">
+      <!--card-->
+      {{#each targets}}
+      <div class="card border-dark" style="width: 18rem;">
+        <label class="form-check-label" for="{{this.id}}">
+          <img src="{{this.img}}" class="card-img-top" alt="{{this.title}}" style="height: 14rem;">
+          <div class="card-body text-center">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="career" id="{{this.id}}" value="{{this.id}}">
+                {{this.title}}
+        </label>
+      </div>
+    </div>
+</div>
+{{/each}}
+</div>
+
+<div class="d-flex generator-section mt-5 ">
+  <input class="btn btn-primary align-self-center ml-3" type="submit" value="產生幹話" style="height:3rem;">
+  <div class="show-direction flex-grow-1 ml-3">
+    <div class="alert alert-light border-primary " role="alert" style="height: 100px">
+      {{#if trashTalk}} <h3>{{ trashTalk }}</h3> {{else}} 你不選人我怎麼講幹話？{{/if}}
+    </div>
+  </div>
+</div>
+
+</form>
+
+</div>
